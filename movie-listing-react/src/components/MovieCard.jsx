@@ -1,7 +1,7 @@
 // MovieCard.jsx
 import React from 'react';
 import { useMovieContext } from '../contexts/MovieContext';
-import '../css/MovieCard.css'; // Optional
+import '../css/MovieCard.css';
 
 function MovieCard({ movie }) {
   const { addToFavorites, removeFromFavorites, isFavorite } = useMovieContext();

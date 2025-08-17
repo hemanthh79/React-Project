@@ -6,13 +6,13 @@ const BASE_URL = "https://www.omdbapi.com/";
  * Because OMDb doesn't support trending/popular directly.
  */
 export const getPopularMovies = async () => {
-  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=batman&page=1`);
+  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=fast&page=1`);
   const data = await response.json();
 
   // OMDb returns movies in `Search` key
   if (data.Response === "True") {
     // Return only top 10 movies
-    return data.Search.slice(0, 10);
+    return data.Search.slice(0, 20);
   } else {
     return [];
   }
