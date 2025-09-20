@@ -1,6 +1,6 @@
 import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
-import '../css/Home.css';
+import "../css/Home.css";
 import { searchMoviesByName, getPopularMovies } from "../services/api";
 
 function Home() {
@@ -37,8 +37,7 @@ function Home() {
       const searchedMovies = await searchMoviesByName(searchQuery);
       setMovies(searchedMovies);
     } catch (error) {
-      setError("Failed to search movies");
-      console.log(error);
+      setError("Failed to search movies" + error.message);
     } finally {
       setLoading(false);
     }
@@ -54,15 +53,18 @@ function Home() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-button">Search</button>
+        <button type="submit" className="search-button">
+          Search
+        </button>
       </form>
 
       {loading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
 
       <div className="movies-grid">
+        {movies.length === 0 && !loading && <p>No movies found</p>}
         {movies.map((movie) => (
-          <MovieCard movie={movie} key={movie.imdbID} />
+          <MovieCard movie={movie} movieId={movie.imdbId} key={movie.imdbID} />
         ))}
       </div>
     </div>

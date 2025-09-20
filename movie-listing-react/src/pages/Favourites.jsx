@@ -1,10 +1,10 @@
 // Favourites.jsx
-import '../css/Favourites.css';
-import { useMovieContext } from '../contexts/MovieContext';
-import MovieCard from '../components/MovieCard';
+import "../css/Favourites.css";
+import { useMovieContext } from "../contexts/MovieContext";
+import MovieCard from "../components/MovieCard";
 
 function Favourite() {
-  const { favorites } = useMovieContext(); // ✅ corrected here
+  const { favorites } = useMovieContext();
 
   return (
     <div className="favourites-page">

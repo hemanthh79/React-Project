@@ -5,6 +5,7 @@ const BASE_URL = "https://www.omdbapi.com/";
  * Simulates fetching popular movies using a general keyword (e.g., "a")
  * Because OMDb doesn't support trending/popular directly.
  */
+
 export const getPopularMovies = async () => {
   const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=fast&page=1`);
   const data = await response.json();

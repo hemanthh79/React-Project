@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 
 // Create context
 const MovieContext = createContext();
@@ -22,20 +22,20 @@ export function MovieProvider({ children }) {
 
   // Add a movie to favorites
   const addToFavorites = (movie) => {
-    const exists = favorites.find(fav => fav.imdbID === movie.imdbID);
+    const exists = favorites.find((fav) => fav.imdbID === movie.imdbID);
     if (!exists) {
-      setFavorites(prev => [...prev, movie]);
+      setFavorites((prev) => [...prev, movie]);
     }
   };
 
   // Remove a movie from favorites
   const removeFromFavorites = (id) => {
-    setFavorites(prev => prev.filter(movie => movie.imdbID !== id));
+    setFavorites((prev) => prev.filter((movie) => movie.imdbID !== id));
   };
 
   // Check if a movie is in favorites
   const isFavorite = (id) => {
-    return favorites.some(movie => movie.imdbID === id);
+    return favorites.some((movie) => movie.imdbID === id);
   };
 
   return (

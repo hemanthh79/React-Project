@@ -33,7 +33,6 @@
   line-height: 1.6;
 }
 
-
 /* Animation for new favorites being added */
 @keyframes fadeIn {
   from {
@@ -46,6 +45,30 @@
   }
 }
 
+/* Flexbox grid for movies */
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;           /* wrap to next line if needed */
+  gap: 20px;                 /* space between movies */
+  justify-content: center;   /* center movies when few items */
+  max-width: 1200px;         /* optional: limit total width */
+  margin: 0 auto;            /* center the grid on the page */
+  padding: 20px 0;
+}
+
+/* Fix movie card width so they don’t stretch */
+.movie-card {
+  flex: 0 1 220px;           /* base width 220px, don’t grow, shrink if needed */
+}
+
+/* Fade-in animation for each card */
 .movies-grid > * {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .movie-card {
+    flex: 0 1 160px;        /* smaller width on mobile */
+  }
 }
