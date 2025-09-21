@@ -1,4 +1,3 @@
-// App.jsx
 import "./css/App.css";
 import Home from "./pages/home";
 import Favourite from "./pages/Favourites";

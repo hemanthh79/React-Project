@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const API_KEY = "cac58529";
 const BASE_URL = "https://www.omdbapi.com/";
 
@@ -7,7 +9,7 @@ const BASE_URL = "https://www.omdbapi.com/";
  */
 
 export const getPopularMovies = async () => {
-  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=fast&page=1`);
+  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=avengers&page=1`);
   const data = await response.json();
 
   // OMDb returns movies in `Search` key

@@ -18,15 +18,49 @@
 }
 
 .nav-link {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  position: relative; 
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  padding-bottom: 3px; /* gives space for underline */
+}
+
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; 
+  width: 0%;
+  height: 2px;
+  background-color: #ffcc00; /* underline color */
+  transition: width 0.3s ease; /* animation */
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: lightgray;
 }
+
+.active-link {
+  position: relative;
+  font-weight: bold;
+  color: yellow; /* highlight active link */
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: yellow;
+}
+
 
 @media (max-width: 768px) {
   .navbar {

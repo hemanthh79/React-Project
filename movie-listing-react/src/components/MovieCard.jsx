@@ -1,17 +1,15 @@
-// MovieCard.jsx
-import React from "react";
 import { useMovieContext } from "../contexts/MovieContext";
 import "../css/MovieCard.css";
 import { useNavigate } from "react-router-dom";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, movieId }) {
   const Navigate = useNavigate();
 
   const { addToFavorites, removeFromFavorites, isFavorite } = useMovieContext();
-  const fav = isFavorite(movie.imdbID);
+  const fav = isFavorite(movieId);
 
   const handleClick = () => {
-    fav ? removeFromFavorites(movie.imdbID) : addToFavorites(movie);
+    fav ? removeFromFavorites(movieId) : addToFavorites(movie);
   };
 
   const handleMovieClick = (movieId) => {
@@ -23,12 +21,12 @@ function MovieCard({ movie }) {
       <img
         src={movie.Poster}
         alt={movie.Title}
-        onClick={() => handleMovieClick(movie.imdbID)}
+        onClick={() => handleMovieClick(movieId)}
         className="movie-poster"
       />
       <div className="movie-info">
         <h3
-          onClick={() => handleMovieClick(movie.imdbID)}
+          onClick={() => handleMovieClick(movieId)}
           style={{ cursor: "pointer" }}
         >
           {movie.Title}

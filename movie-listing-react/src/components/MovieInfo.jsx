@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getMovieById } from "../services/api";
 import { useMovieContext } from "../contexts/MovieContext";
 import "../css/MovieInfo.css";
+import { Link } from "react-router-dom";
 
 function MovieInfo() {
   const { id } = useParams();
@@ -59,6 +60,12 @@ function MovieInfo() {
 
         <button onClick={handleFavClick}>
           {fav ? "Remove from Favorites" : "Add to Favorites"}
+        </button>
+        <button>
+          {" "}
+          <Link to="/" style={{ color: "white" }}>
+            Home
+          </Link>
         </button>
       </div>
     </div>

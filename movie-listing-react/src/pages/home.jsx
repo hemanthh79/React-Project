@@ -64,7 +64,7 @@ function Home() {
       <div className="movies-grid">
         {movies.length === 0 && !loading && <p>No movies found</p>}
         {movies.map((movie) => (
-          <MovieCard movie={movie} movieId={movie.imdbId} key={movie.imdbID} />
+          <MovieCard movie={movie} movieId={movie.imdbID} key={movie.imdbID} />
         ))}
       </div>
     </div>
